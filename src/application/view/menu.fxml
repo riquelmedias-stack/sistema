@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MenuInicialController">
+   <children>
+      
+      <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Inicio">
+            <items>
+              <MenuItem fx:id="itemSair" mnemonicParsing="false" onAction="#Sair" text="Sair" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Cadastros">
+            <items>
+              <MenuItem fx:id="itemUsuarios" mnemonicParsing="false" onAction="#AbrirCadastroUsuario" text="Usuarios" />
+              <MenuItem fx:id="itemClientes" mnemonicParsing="false" onAction="#AbrirCadastroClientes" text="Clientes" />
+              <MenuItem fx:id="itemProdutos" mnemonicParsing="false" onAction="#AbrirCadastroProdutos" text="Produtos" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Operações">
+            <items>
+              <MenuItem fx:id="itemProcessaEstoque" mnemonicParsing="false" text="Processar estoque" />
+              <MenuItem fx:id="itemFrente" mnemonicParsing="false" text="Frente de Caixa/PDV" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+
+      <Label layoutX="165.0" layoutY="175.0" style="-fx-text-fill: white;" text="Bem-vindo ao Sistema!">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      
+   </children>
+</AnchorPane>

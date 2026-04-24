@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.CadastroProdutosController">
+
+   <children>
+      <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Inicio">
+            <items>
+              <MenuItem fx:id="itemSair" mnemonicParsing="false" onAction="#Sair" text="Sair" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Cadastros">
+            <items>
+              <MenuItem fx:id="itemUsuarios" mnemonicParsing="false" onAction="#AbrirCadastroUsuario" text="Usuarios" />
+              <MenuItem fx:id="itemClientes" mnemonicParsing="false" onAction="#AbrirCadastroClientes" text="Clientes" />
+              <MenuItem fx:id="itemProdutos" mnemonicParsing="false" onAction="#AbrirCadastroProdutos" text="Produtos" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Operações">
+            <items>
+              <MenuItem fx:id="itemProcessaEstoque" mnemonicParsing="false" text="Processar estoque" />
+              <MenuItem fx:id="itemFrente" mnemonicParsing="false" text="Frente de Caixa/PDV" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      
+      <Label layoutX="218.0" layoutY="40.0" style="-fx-text-fill: white;" text="Cadastro de Produtos">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+
+      <Label layoutX="55.0" layoutY="91.0" style="-fx-text-fill: #dddddd;" text="Nome" />
+      <TextField fx:id="txtNome" layoutX="55.0" layoutY="113.0" promptText="Nome do Produto" />
+
+      <Label layoutX="225.0" layoutY="91.0" style="-fx-text-fill: #dddddd;" text="Descrição" />
+      <TextField fx:id="txtDescricao" layoutX="225.0" layoutY="113.0" promptText="Descrição do Produto" />
+
+      <Label layoutX="390.0" layoutY="91.0" style="-fx-text-fill: #dddddd;" text="Categoria" />
+      <ChoiceBox fx:id="cbCategoria" layoutX="390.0" layoutY="113.0" prefWidth="150.0" />
+
+      <Label layoutX="55.0" layoutY="151.0" style="-fx-text-fill: #dddddd;" text="Preço Custo" />
+      <TextField fx:id="txtPrecoCusto" layoutX="55.0" layoutY="169.0" promptText="Preço Custo" />
+      
+      <Label layoutX="225.0" layoutY="151.0" style="-fx-text-fill: #dddddd;" text="Preço Venda" />
+      <TextField fx:id="txtPrecoVenda" layoutX="225.0" layoutY="169.0" promptText="Preço Venda" />
+      
+      <Label layoutX="390.0" layoutY="151.0" style="-fx-text-fill: #dddddd;" text="Estoque Inicial" />
+      <TextField fx:id="txtEstoque" layoutX="391.0" layoutY="169.0" promptText="Estoque" text="0" />
+      
+      <Label layoutX="55.0" layoutY="206.0" style="-fx-text-fill: #dddddd;" text="Margem de Lucro(%)" />
+      <TextField fx:id="txtLucro" layoutX="55.0" layoutY="224.0" prefHeight="25.0" prefWidth="149.0" promptText="Lucro em Porcentagem" />
+      
+      <Label layoutX="392.0" layoutY="206.0" style="-fx-text-fill: #dddddd;" text="Código de Barras" />
+      <TextField fx:id="txtCod" layoutX="393.0" layoutY="224.0" promptText="Código de barras" />
+
+      <Label fx:id="lblSugerido" layoutX="55.0" layoutY="273.0" prefHeight="17.0" prefWidth="364.0" style="-fx-text-fill: #ffeb3b; -fx-font-weight: bold;" text="Preço Venda Sugerido:" />
+
+      <Button fx:id="btnCadastrar" layoutX="250.0" layoutY="330.0" mnemonicParsing="false" onAction="#Cadastrar" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;" text="Cadastrar" />
+
+   </children>
+</AnchorPane>

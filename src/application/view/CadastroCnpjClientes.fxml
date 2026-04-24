@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.CadastroClientesCnpjController">
+
+   <children>
+		<MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Inicio">
+            <items>
+              <MenuItem fx:id="itemSair" mnemonicParsing="false" onAction="#Sair" text="Sair" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Cadastros">
+            <items>
+              <MenuItem fx:id="itemUsuarios" mnemonicParsing="false" onAction="#AbrirCadastroUsuario" text="Usuarios" />
+              <MenuItem fx:id="itemClientes" mnemonicParsing="false" onAction="#AbrirCadastroClientes" text="Clientes" />
+              <MenuItem fx:id="itemProdutos" mnemonicParsing="false" onAction="#AbrirCadastroProdutos" text="Produtos" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Operações">
+            <items>
+              <MenuItem fx:id="itemProcessaEstoque" mnemonicParsing="false" text="Processar estoque" />
+              <MenuItem fx:id="itemFrente" mnemonicParsing="false" text="Frente de Caixa/PDV" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+
+      <Label layoutX="218.0" layoutY="40.0" style="-fx-text-fill: white;" text="Cadastro de Clientes">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+
+      <RadioButton fx:id="rbCpf" layoutX="512.0" layoutY="40.0" mnemonicParsing="false" onAction="#TelaCpf" selected="true" style="-fx-text-fill: white; -fx-font-weight: bold;" text="CPF">
+         <toggleGroup>
+            <ToggleGroup fx:id="rbtipo" />
+         </toggleGroup>
+      </RadioButton>
+
+      <RadioButton fx:id="rbCnpj" layoutX="512.0" layoutY="65.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="60.0" selected="true" style="-fx-text-fill: white; -fx-font-weight: bold;" text="CNPJ" toggleGroup="$rbtipo" />
+
+      <Label layoutX="14.0" layoutY="84.0" style="-fx-text-fill: #dddddd;" text="Nome Fantasia" />
+      <TextField fx:id="txtNome" layoutX="14.0" layoutY="106.0" promptText="Nome Fantasia" />
+
+      <Label layoutX="184.0" layoutY="84.0" style="-fx-text-fill: #dddddd;" text="Email" />
+      <TextField fx:id="txtEmail" layoutX="184.0" layoutY="106.0" promptText="Email" />
+
+      <Label layoutX="349.0" layoutY="83.0" style="-fx-text-fill: #dddddd;" text="CEP" />
+      <TextField fx:id="txtCep" layoutX="349.0" layoutY="105.0" promptText="CEP" />
+
+      <Label layoutX="14.0" layoutY="144.0" style="-fx-text-fill: #dddddd;" text="CNPJ" />
+      <TextField fx:id="txtCnpj" layoutX="14.0" layoutY="162.0" promptText="CNPJ" />
+
+      <Label layoutX="184.0" layoutY="144.0" style="-fx-text-fill: #dddddd;" text="Telefone" />
+      <TextField fx:id="txtTelefone" layoutX="184.0" layoutY="162.0" promptText="Telefone" />
+
+      <Button fx:id="btnCadastrar" layoutX="250.0" layoutY="330.0" mnemonicParsing="false" onAction="#Cadastrar" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;" text="Cadastrar" />
+
+   </children>
+</AnchorPane>

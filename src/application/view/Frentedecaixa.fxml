@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.FrentedeCaixaController">
+   <children>
+      
+      <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Inicio">
+            <items>
+              <MenuItem fx:id="itemSair" mnemonicParsing="false" onAction="#Sair" text="Sair" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Cadastros">
+            <items>
+              <MenuItem fx:id="itemUsuarios" mnemonicParsing="false" onAction="#AbrirCadastroUsuario" text="Usuarios" />
+              <MenuItem fx:id="itemClientes" mnemonicParsing="false" onAction="#AbrirCadastroClientes" text="Clientes" />
+              <MenuItem fx:id="itemProdutos" mnemonicParsing="false" onAction="#AbrirCadastroProdutos" text="Produtos" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Operações">
+            <items>
+              <MenuItem fx:id="itemProcessaEstoque" mnemonicParsing="false" text="Processar estoque" />
+              <MenuItem fx:id="itemFrente" mnemonicParsing="false" text="Frente de Caixa/PDV" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+
+      <Label layoutX="30.0" layoutY="40.0" style="-fx-text-fill: white;" text="Frente de Caixa (PDV)">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      
+      <Label layoutX="30.0" layoutY="90.0" style="-fx-text-fill: #dddddd;" text="Cliente Selecionado:" />
+      <TextField fx:id="txtNomeCliente" editable="false" layoutX="30.0" layoutY="110.0" prefWidth="350.0" promptText="Nenhum cliente selecionado..." />
+      <Button fx:id="btnBuscarCliente" layoutX="390.0" layoutY="110.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-text-fill: black;" text="🔍 Buscar Cliente" />
+
+      <Label layoutX="30.0" layoutY="160.0" style="-fx-text-fill: #dddddd;" text="Produto Selecionado:" />
+      <TextField fx:id="txtNomeProduto" editable="false" layoutX="30.0" layoutY="180.0" prefWidth="350.0" promptText="Nenhum produto selecionado..." />
+      <Button fx:id="btnBuscarProduto" layoutX="390.0" layoutY="180.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-text-fill: black;" text="🔍 Buscar Produto" />
+      
+      <Label layoutX="550.0" layoutY="160.0" style="-fx-text-fill: #dddddd;" text="Quantidade:" />
+      <TextField fx:id="txtQtdProduto" layoutX="550.0" layoutY="180.0" prefWidth="80.0" text="1" />
+      <Button fx:id="btnAdicionarItem" layoutX="640.0" layoutY="180.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Adicionar (Enter)" />
+
+      <TableView fx:id="tabelaCarrinho" layoutX="30.0" layoutY="230.0" prefHeight="160.0" prefWidth="740.0">
+        <columns>
+          <TableColumn fx:id="colCodigo" prefWidth="100.0" text="Código/Ref" />
+          <TableColumn fx:id="colDescricao" prefWidth="300.0" text="Descrição do Produto" />
+          <TableColumn fx:id="colQtd" prefWidth="80.0" text="Qtd." />
+          <TableColumn fx:id="colPrecoUnitario" prefWidth="120.0" text="Valor Unit." />
+          <TableColumn fx:id="colSubtotal" prefWidth="140.0" text="Subtotal" />
+        </columns>
+      </TableView>
+
+      <Label layoutX="30.0" layoutY="410.0" style="-fx-text-fill: #dddddd;" text="Forma de Pagamento 1:" />
+      <ComboBox fx:id="cbPagamento1" layoutX="30.0" layoutY="430.0" prefWidth="150.0" promptText="Selecione..." />
+      <Label layoutX="215.0" layoutY="410.0" style="-fx-text-fill: #dddddd;" text="Valor:" />
+      <TextField fx:id="txtValorPag1" layoutX="215.0" layoutY="430.0" prefWidth="100.0" />
+
+      <Label layoutX="30.0" layoutY="470.0" style="-fx-text-fill: #dddddd;" text="Forma de Pagamento 2 (Opcional):" />
+      <ComboBox fx:id="cbPagamento2" layoutX="30.0" layoutY="490.0" prefWidth="150.0" promptText="Selecione..." />
+      <Label layoutX="215.0" layoutY="470.0" style="-fx-text-fill: #dddddd;" text="Valor:" />
+      <TextField fx:id="txtValorPag2" layoutX="215.0" layoutY="490.0" prefWidth="100.0" />
+
+      <Label layoutX="30.0" layoutY="540.0" style="-fx-text-fill: white;" text="Cód. Vendedor:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtCodVendedor" layoutX="130.0" layoutY="535.0" prefWidth="100.0" promptText="Matrícula" />
+
+      <Label layoutX="550.0" layoutY="400.0" style="-fx-text-fill: white;" text="Desconto Aplicado (%):">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtDesconto" layoutX="720.0" layoutY="398.0" prefWidth="50.0" text="0" />
+
+      <Label layoutX="550.0" layoutY="435.0" style="-fx-text-fill: #dddddd;" text="TOTAL A PAGAR:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTotalPedido" layoutX="550.0" layoutY="460.0" style="-fx-text-fill: #ffeb3b;" text="R$ 0,00">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      
+      <Button fx:id="btnFinalizarVenda" layoutX="550.0" layoutY="530.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-weight: bold;" text="Finalizar Venda (Faturar)">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnCancelarCompra" layoutX="380.0" layoutY="530.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="154.0" style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-weight: bold;" text="Cancelar Compra">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
